@@ -17,3 +17,26 @@ class Customer {
         return total;
     }
 }
+
+//task 2:
+class SalesRep {
+    constructor(name) {
+        this.name = name;
+        this.clients = [];
+        console.log(`SalesRep created: ${this.name}`);
+    }
+    addClient(customer) {
+        this.clients.push(customer);
+        console.log(`${customer.name} added to ${this.name}'s client list.`);
+    }
+
+    getClientTotal(name) {
+        const client = this.clients.find(c => c.name === name);
+        if (client) {
+            return client.getTotalSpent();
+        }else {
+             console.log(`Client ${name} not found.`);
+             return 0;
+            }
+    }
+}
