@@ -70,8 +70,8 @@ vip1.addPurchase(1000)
 vip1.addPurchase(2000);
 
 const vip2 = new VIPCustomer('Maria Hernandez', 'maria@gmail.com', 'Platinum');
-vip1.addPurchase(2000)
-vip1.addPurchase(500);
+vip2.addPurchase(2000)
+vip2.addPurchase(500);
 
 const rep = new SalesRep('Jordan Benett');
 rep.addClient(cust1);
