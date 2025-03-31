@@ -40,3 +40,18 @@ class SalesRep {
             }
     }
 }
+
+//Task 3:
+class VIPCustomer extends Customer {
+    constructor(name,email,viplevel) {
+        super(name,email);
+        this.viplevel = viplevel;
+        console.log(`VIP Customer created: ${this.name} (${this.viplevel})`);
+    }
+
+    getTotalSpent() {
+        const baseTotal = super.getTotalSpent();
+        const bonusTotal = baseTotal * 1.1;
+        return bonusTotal;
+    }
+}
