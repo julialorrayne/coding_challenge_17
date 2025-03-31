@@ -55,3 +55,44 @@ class VIPCustomer extends Customer {
         return bonusTotal;
     }
 }
+
+//Task 4:
+const cust1 = new Customer('Julia Nascimento', 'julia@gmail.com');
+cust1.addPurchase(100);
+cust1.addPurchase(200);
+
+const cust2 = new Customer ('Juliana Guimaraes', 'juliana.guimaraes@gmail.com');
+cust2.addPurchase(140);
+cust2.addPurchase(300);
+
+const vip1 = new VIPCustomer('Mathew Smith', 'mathew.smith@gmail.com', 'Platinum');
+vip1.addPurchase(1000)
+vip1.addPurchase(2000);
+
+const vip2 = new VIPCustomer('Maria Hernandez', 'maria@gmail.com', 'Platinum');
+vip1.addPurchase(2000)
+vip1.addPurchase(500);
+
+const rep = new SalesRep('Jordan Benett');
+rep.addClient(cust1);
+rep.addClient(cust2);
+rep.addClient(vip1);
+rep.addClient(vip2);
+
+const totalRevenue = rep.clients.reduce((total,client) => {
+    return total + client.getTotalSpent();
+}, 0);
+
+const bigSpenders = rep.clients.filter(client => client.getTotalSpent() > 1000);
+
+const clientSummaries = rep.clients.map(client => {
+    return {
+        name: client.name,
+        totalSpent: client.getTotalSpent(),
+    };
+});
+
+//logging the results
+console.log(`Total Revenue: $${totalRevenue}`);
+console.log('High-Spending Customers:', bigSpenders.map(client => client.name));
+console.log('Client Summaries:', clientSummaries);
